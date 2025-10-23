@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/recv.png</file>
+        <file>images/trans.png</file>
+        <file>images/settings.png</file>
+        <file>images/recv_sel.png</file>
+        <file>images/settings_sel.png</file>
+        <file>images/trans_sel.png</file>
+    </qresource>
+</RCC>

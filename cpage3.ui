@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CPage3</class>
+ <widget class="QWidget" name="CPage3">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>340</width>
+    <height>390</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="4" column="0" colspan="3">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Размер выборки:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0" colspan="3">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Шаг по частоте:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="3" colspan="4">
+      <widget class="QDoubleSpinBox" name="doubleSpinBox_4"/>
+     </item>
+     <item row="4" column="3" colspan="4">
+      <widget class="QComboBox" name="comboBox"/>
+     </item>
+     <item row="8" column="0" colspan="3">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Макс. значение:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>Иниц. USRP:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="1" colspan="6">
+      <widget class="QLineEdit" name="lineEdit"/>
+     </item>
+     <item row="2" column="3" colspan="4">
+      <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+     </item>
+     <item row="7" column="3" colspan="4">
+      <widget class="QDoubleSpinBox" name="doubleSpinBox_3"/>
+     </item>
+     <item row="12" column="0">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>Приемник ВЧ:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0" colspan="3">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Ед. изм. частоты:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="2" colspan="5">
+      <widget class="QLineEdit" name="lineEdit_2">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0" colspan="7">
+      <widget class="QCheckBox" name="checkBox">
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>Автомасштабирование</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="6">
+      <widget class="QDoubleSpinBox" name="doubleSpinBox_5"/>
+     </item>
+     <item row="9" column="0" colspan="5">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>Пороговая мощность:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="7">
+      <widget class="QLabel" name="label_11">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+         <italic>true</italic>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Параметры программы</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0" colspan="2">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Мин. значение:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="7">
+      <widget class="Line" name="line">
+       <property name="lineWidth">
+        <number>2</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" colspan="4">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Диапазон перестройки:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="4" colspan="3">
+      <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+     </item>
+     <item row="5" column="5" colspan="2">
+      <widget class="QComboBox" name="comboBox_2"/>
+     </item>
+     <item row="11" column="0" colspan="3">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>Приемопередатчик:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="3" colspan="4">
+      <widget class="QComboBox" name="comboBox_3"/>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
