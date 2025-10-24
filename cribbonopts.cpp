@@ -202,7 +202,11 @@ void CRibbonOpts::resizeEvent(QResizeEvent *event)
             if( nIconWidth > 0 ) nMax = nIconWidth;
 
             if( !(m_u8Type & TYPE_SC_ICONS_ONLY) )
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+                nMax += qfmTemp.horizontalAdvance( qsItemText ) + qfmTemp.horizontalAdvance( 'O' );
+#else
                 nMax += qfmTemp.width( qsItemText ) + qfmTemp.width( 'O' );
+#endif
             // Set fixed size of elements
             for( nItem = 0; nItem < nItems; nItem++ )
             {
@@ -242,7 +246,12 @@ void CRibbonOpts::SetWidgetBkground( QWidget *pWgt, int nR, int nG, int nB )
 
     QPalette tmpPal = pWgt->palette();
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    tmpPal.setColor( QPalette::Window, QColor( qRgb( nR, nG, nB ) ) );
+#else
     tmpPal.setColor( QPalette::Background, QColor( qRgb( nR, nG, nB ) ) );
+#endif
+
     pWgt->setAutoFillBackground( true );
     pWgt->setPalette( tmpPal );
 }

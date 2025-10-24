@@ -1,4 +1,4 @@
-QT       += core gui dbus
+QT       += widgets core gui dbus
 QTPLUGIN += qtvirtualkeyboardplugin
 TRANSLATIONS += QtLanguage_ru.ts QtLanguage_en.ts
 CODECFORSRC     = UTF-8
@@ -8,7 +8,7 @@ CONFIG += lang-all
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c++17
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -47,4 +47,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     stacked_layout.qrc
 
-INCLUDEPATH += ../LIB/lagron_bsb
+INCLUDEPATH += ./LIB

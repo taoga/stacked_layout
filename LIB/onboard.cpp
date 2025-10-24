@@ -9,12 +9,14 @@ Onboard::Onboard(QObject *parent) :
     _dbusInterface(DBUS_SERVICE_NAME, DBUS_PATH)
 {
     _dbusDeamon = _dbusInterface.connection().interface();
+
     _isVisible = isVisible();
 }
 
 bool Onboard::runOnboard()
 {
-    if (_dbusDeamon->isServiceRegistered(_dbusInterface.service())){
+	if (_dbusDeamon->isServiceRegistered(_dbusInterface.service()))
+	{
 		setVisibility(true);
 		return true;
 	}
@@ -22,62 +24,74 @@ bool Onboard::runOnboard()
     QStringList tmpList;
     //bool success = QProcess::startDetached("onboard");
     bool success = QProcess::startDetached("onboard", tmpList );
-    if (success){
+    if (success)
+    {
 		setVisibility(true);
-	}
-    else{
-		setVisibility(false);
-		qCritical("Unable to run Onboard application.");
-	}
+    }
+    else
+    {
+        setVisibility(false);
+        qCritical("Unable to run Onboard application.");
+    }
 
 	return success;
 }
 
 void Onboard::show()
 {
-	if (_dbusDeamon->isServiceRegistered(_dbusInterface.service()))	{
+	if (_dbusDeamon->isServiceRegistered(_dbusInterface.service()))
+	{
 		QDBusMessage reply = _dbusInterface.call("Show");
 
-        if (reply.type() == QDBusMessage::ReplyMessage) {
+		if (reply.type() == QDBusMessage::ReplyMessage)
+		{
 			setVisibility(true);
 		}
-        else {
+		else
+		{
 			unexpectedMessage(reply);
 		}
 	}
-    else
-    if (_autoRun) {
+	else if (_autoRun)
+	{
 		runOnboard();
 	}
-    else {
+	else
+	{
 		setVisibility(false);
 	}
 }
 
 void Onboard::hide()
 {
-	if (_dbusDeamon->isServiceRegistered(_dbusInterface.service()))	{
+	if (_dbusDeamon->isServiceRegistered(_dbusInterface.service()))
+	{
 		QDBusMessage reply = _dbusInterface.call("Hide");
 
-        if (reply.type() == QDBusMessage::ReplyMessage)	{
+		if (reply.type() == QDBusMessage::ReplyMessage)
+		{
 			setVisibility(false);
 		}
-        else {
+		else
+		{
 			unexpectedMessage(reply);
 		}
 	}
-    else {
+	else
+	{
 		setVisibility(false);
 	}
 }
 
 bool Onboard::isVisible()
 {
-    if (_dbusDeamon->isServiceRegistered(_dbusInterface.service())) {
+	if (_dbusDeamon->isServiceRegistered(_dbusInterface.service()))
+	{
 		QDBusMessage reply = _dbusInterface.call("IsVisible");
 
 		if (reply.type() != QDBusMessage::ReplyMessage
-            || reply.arguments().size() != 1) {
+			|| reply.arguments().size() != 1)
+		{
 			unexpectedMessage(reply);
 			setVisibility(false);
 			return false;
@@ -87,7 +101,8 @@ bool Onboard::isVisible()
 		setVisibility(result);
 		return result;
 	}
-    else {
+	else
+	{
 		setVisibility(false);
 		return false;
 	}
@@ -110,7 +125,8 @@ void Onboard::unexpectedMessage(const QDBusMessage &msg)
 
 void Onboard::setVisibility(bool isVisible)
 {
-    if (_isVisible != isVisible) {
+	if (_isVisible != isVisible)
+	{
 		_isVisible = isVisible;
 		emit visibilityUpdated(_isVisible);
 	}

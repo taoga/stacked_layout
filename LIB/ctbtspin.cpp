@@ -16,6 +16,7 @@ CTbtSpinLE::CTbtSpinLE(QWidget *parent ): QLineEdit( parent )
 
 void CTbtSpinLE::DefInit()
 {
+    m_pOnboard = nullptr;
 #ifndef Q_OS_WIN
     m_pOnboard = new Onboard(this);
 #else
@@ -145,7 +146,12 @@ CTbtSpin::CTbtSpin(QWidget *parent) :
     pLayout->addWidget( m_pDecBtn );
     pLayout->addWidget( m_pLineEdit );
     pLayout->addWidget( m_pIncBtn );
+    //pLayout->setMargin( 1 );
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    pLayout->setContentsMargins( 1, 1, 1, 1 );
+#else
     pLayout->setMargin( 1 );
+#endif
     pLayout->setSpacing( 1 );
 
     setLayout( pLayout );

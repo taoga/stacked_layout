@@ -27,8 +27,8 @@ protected:
 #ifndef Q_OS_WIN
     Onboard *m_pOnboard;                            // D-Bus interface with onboard
 
-    void focusInEvent(QFocusEvent *event);
-    void focusOutEvent(QFocusEvent *event);
+    void focusInEvent(QFocusEvent *event) override;
+    void focusOutEvent(QFocusEvent *event) override;
 #else
     bool event(QEvent *event) override;
     void Move4Visible();
